@@ -1,0 +1,23 @@
+export const environment = {
+  production: true,
+  global_logo: undefined,
+  primaryColor: '#023f5f',
+  url_prefix: 'url_backend/',
+  url_frontend: 'urlFrontend/',
+  url_service: 'https://service.geo.sm/',
+  path_qgis: '/var/www/geosm/',
+  projet_nodejs: 'pojet_nodejs_value',
+  nom: 'nomInstance',
+  countrycode: 'code_country',
+  avaible_language: ['fr', 'en', 'es'],
+  default_language: 'langue',
+  firebase: {
+    apiKey: 'apikey',
+    authDomain: 'authdomain',
+    projectId: 'projectid',
+    storageBucket: 'storagebucket',
+    messagingSenderId: 'messagingsenderid',
+    appId: 'appid',
+    measurementId: 'measurementid',
+  },
+};
