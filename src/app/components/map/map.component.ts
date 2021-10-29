@@ -92,7 +92,7 @@ export class MapComponent implements OnInit {
     {
       name: 'legend',
       active: false,
-      enable: true,
+      enable: false,
       tooltip: 'toolpit_legend',
       title: 'legend',
     },
@@ -106,7 +106,7 @@ export class MapComponent implements OnInit {
     {
       name: 'download',
       active: false,
-      enable: true,
+      enable: false,
       tooltip: 'toolpit_download_data',
       title: 'download_data',
     },
@@ -150,6 +150,14 @@ export class MapComponent implements OnInit {
         map.getView().fit(this.storageService.getConfigProjet().bbox, {
           size: map.getSize(),
           duration: 1000,
+        });
+        localStorage.setItem(
+          'token',
+          this.storageService.getToken().access_token
+        );
+
+        this.storageService.loadRRMdata().then((response) => {
+          this.notifier.notify('success', 'Chargement des données RRM terminé');
         });
         this.analyticService.countView();
         //  this.notifier.notify('success', 'Téléchargement terminé');

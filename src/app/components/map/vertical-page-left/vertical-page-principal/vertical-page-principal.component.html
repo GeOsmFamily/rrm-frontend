@@ -65,6 +65,15 @@ l1-9C3047.3-512.3,3044.6-511.8,3042.1-510.8z" />
 
 <div style="margin-top: 20px" *ngIf="!displayLabelForBibliothequeArborescence()"></div>
 
+<h4 class="bold primaryColor primary_transparent_bg arborescence-group">Indicateurs RRM</h4>
+<div class="arborescence-groupe-thematique" *ngFor="
+    let groupThematique of storageService.getAllGroupThematiques()
+      | sortBy: 'asc':'ordre'
+  ">
+  <app-groupe-rrm class="pointer"></app-groupe-rrm>
+</div>
+
+<h4 class="bold primaryColor primary_transparent_bg arborescence-group">Autres</h4>
 <div class="arborescence-groupe-thematique" *ngFor="
     let groupThematique of storageService.getAllGroupThematiques()
       | sortBy: 'asc':'ordre'

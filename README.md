@@ -28,7 +28,7 @@ create the enviroment.ts(/src/environments/environment.ts) file and add your con
 export const environment = {
   production: false,
   global_logo: undefined,
-  primaryColor: '#023f5f',
+  primaryColor: '#DC143C',
   url_prefix: 'url_backend/',
   url_frontend: 'urlFrontend/',
   url_service: 'https://service.geo.sm/',

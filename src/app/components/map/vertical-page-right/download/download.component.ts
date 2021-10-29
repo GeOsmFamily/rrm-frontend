@@ -376,7 +376,7 @@ export class DownloadComponent
 
       for (let index = 0; index < this.downloadModel.layers.length; index++) {
         const layer = this.downloadModel.layers[index];
-        var nom_shp =
+        /* var nom_shp =
           environment.url_service +
           '/' +
           environment.path_qgis +
@@ -409,7 +409,7 @@ export class DownloadComponent
           (data) => {
             // data
           }
-        );
+        );*/
         this.analyticService.addAnalytics({
           type: 'tool',
           name: 'download',

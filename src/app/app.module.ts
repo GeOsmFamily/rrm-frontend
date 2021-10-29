@@ -68,6 +68,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { environment } from 'src/environments/environment';
+import { DashboardServiceService } from './services/dashboard/dashboard-service.service';
+import { GroupeRrmComponent } from './components/map/vertical-page-left/vertical-page-principal/groupe-rrm/groupe-rrm.component';
 
 const customConfig: ShareButtonsConfig = {
   include: ['copy', 'facebook', 'twitter', 'linkedin', 'messenger', 'whatsapp'],
@@ -121,6 +123,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     GeosignetComponent,
     ListGeosignetComponent,
     CommentComponent,
+    GroupeRrmComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -172,6 +175,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PrintService,
     IpServiceService,
     AnalyticsService,
+    DashboardServiceService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [MetadataModalComponent],

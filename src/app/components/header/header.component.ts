@@ -33,4 +33,8 @@ export class HeaderComponent implements OnInit {
   openModalInfo() {
     this.componentHelper.openModalInfo([]);
   }
+
+  open_link(link) {
+    window.open(link, '_blank');
+  }
 }
