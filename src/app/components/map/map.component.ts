@@ -27,6 +27,7 @@ import { DataFromClickOnMapInterface } from 'src/app/interfaces/dataClickInterfa
 import { RightMenuClickComponent } from './right-menu-click/right-menu-click.component';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
+import { MeiliSearch } from 'meilisearch';
 
 var view = new View({
   center: [0, 0],
@@ -155,10 +156,6 @@ export class MapComponent implements OnInit {
           'token',
           this.storageService.getToken().access_token
         );
-
-        this.storageService.loadRRMdata().then((response) => {
-          this.notifier.notify('success', 'Chargement des données RRM terminé');
-        });
         this.analyticService.countView();
         //  this.notifier.notify('success', 'Téléchargement terminé');
       },
@@ -167,6 +164,39 @@ export class MapComponent implements OnInit {
         this.notifier.notify('error', 'Erreur lors du Téléchargement');
       }
     );
+
+    this.storageService.loadRRMdata().then((response) => {
+      var alertes = this.storageService.getAlertes();
+      var ems = this.storageService.getEms();
+      var interventions = this.storageService.getInterventions();
+      var pimpdms = this.storageService.getPimPdm();
+
+      const client = new MeiliSearch({
+        host: 'https://meilisearch.rrm-cameroun.cm',
+      });
+      // client.index('alertes').deleteIfExists();
+      client
+        .index('alertes')
+        .addDocuments(alertes.data)
+        .then((res) => console.log(res));
+
+      client
+        .index('ems')
+        .addDocuments(ems.data)
+        .then((res) => console.log(res));
+
+      client
+        .index('interventions')
+        .addDocuments(interventions.data)
+        .then((res) => console.log(res));
+
+      client
+        .index('pimpdms')
+        .addDocuments(pimpdms.data)
+        .then((res) => console.log(res));
+
+      this.notifier.notify('success', 'Chargement des données RRM terminé');
+    });
 
     map.setTarget('map');
     map.updateSize();

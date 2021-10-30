@@ -51,6 +51,25 @@ export class ApiServiceService {
     return promise;
   }
 
+  postRequestFromOtherHost(path: string, data): Promise<any> {
+    let promise = new Promise((resolve, reject) => {
+      this.http
+        .post(path, data, { headers: this.headers })
+        .toPromise()
+        .then(
+          (res) => {
+            resolve(res);
+          },
+          (msg) => {
+            // Error
+            reject(msg);
+          }
+        );
+    });
+
+    return promise;
+  }
+
   getRequest(path: string): Promise<any> {
     let promise = new Promise((resolve, reject) => {
       this.http

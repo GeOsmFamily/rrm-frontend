@@ -190,7 +190,7 @@ export class StorageServiceService {
           this.statesRRM.getValue().loadRRMData = true;
           this.statesRRM.next(this.statesRRM.getValue());
           resolve({
-            msg: 'Success',
+            msg: this.alertes.value.links.first,
             error: false,
           });
         });
@@ -199,6 +199,22 @@ export class StorageServiceService {
 
   getToken(): Tokens {
     return this.tokenProject.getValue();
+  }
+
+  getAlertes(): AlertesInterface {
+    return this.alertes.getValue();
+  }
+
+  getEms(): EmsInterface {
+    return this.ems.getValue();
+  }
+
+  getInterventions(): InterventionsInterface {
+    return this.interventions.getValue();
+  }
+
+  getPimPdm(): PimPdmsInterface {
+    return this.pimpdms.getValue();
   }
 
   getExtentOfProject(projection = false): [number, number, number, number] {

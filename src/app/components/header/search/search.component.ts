@@ -37,6 +37,10 @@ import { from, merge as observerMerge, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import * as $ from 'jquery';
 import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
+import { HandleAlertesSearch } from './handle/handle-alertes-search';
+import { HandleEmsSearch } from './handle/handle-ems-search';
+import { HandleInterventionsSearch } from './handle/handle-interventions-search';
+import { HandlePimPdmsSearch } from './handle/handle-pimpdm-search';
 
 @Component({
   selector: 'app-search',
@@ -51,9 +55,11 @@ export class SearchComponent implements OnInit {
   isLoading;
 
   filterOptions: { [key: string]: Array<FilterOptionInterface> } = {
-    layer: [],
-    limites: [],
     nominatim: [],
+    alertes: [],
+    ems: [],
+    interventions: [],
+    pimpdms: [],
   };
 
   objectsIn = Object.keys;
@@ -137,12 +143,16 @@ export class SearchComponent implements OnInit {
   }
 
   displayAutocompleFn(option: FilterOptionInterface) {
-    if (option.typeOption == 'limites') {
-      return new HandleEmpriseSearch().displayWith(option);
-    } else if (option.typeOption == 'nominatim') {
+    if (option.typeOption == 'nominatim') {
       return new HandleNominatimSearch().displayWith(option);
-    } else if (option.typeOption == 'layer') {
-      return new HandleLayerSearch().displayWith(option);
+    } else if (option.typeOption == 'alertes') {
+      return new HandleAlertesSearch().displayWith(option);
+    } else if (option.typeOption == 'ems') {
+      return new HandleEmsSearch().displayWith(option);
+    } else if (option.typeOption == 'interventions') {
+      return new HandleInterventionsSearch().displayWith(option);
+    } else if (option.typeOption == 'pimpdms') {
+      return new HandlePimPdmsSearch().displayWith(option);
     }
     return '';
   }
@@ -152,12 +162,19 @@ export class SearchComponent implements OnInit {
       ? selected.option.value
       : undefined;
     if (option) {
-      if (option.typeOption == 'limites') {
-        new HandleEmpriseSearch().optionSelected(option);
-      } else if (option.typeOption == 'nominatim') {
+      if (option.typeOption == 'nominatim') {
         new HandleNominatimSearch().optionSelected(option);
-      } else if (option.typeOption == 'layer') {
-        new HandleLayerSearch().optionSelected(option);
+      } else if (option.typeOption == 'alertes') {
+        new HandleAlertesSearch().optionSelected(option);
+        this.clearSearch();
+      } else if (option.typeOption == 'ems') {
+        new HandleEmsSearch().optionSelected(option);
+        this.clearSearch();
+      } else if (option.typeOption == 'interventions') {
+        new HandleInterventionsSearch().optionSelected(option);
+        this.clearSearch();
+      } else if (option.typeOption == 'pimpdms') {
+        new HandlePimPdmsSearch().optionSelected(option);
         this.clearSearch();
       }
     }
@@ -201,15 +218,27 @@ export class SearchComponent implements OnInit {
         })
       )
       .subscribe((value: any) => {
-        if (value.type == 'limites') {
-          this.filterOptions['limites'] =
-            new HandleEmpriseSearch().formatDataForTheList(value.value);
-        } else if (value.type == 'nominatim') {
+        if (value.type == 'nominatim') {
           this.filterOptions['nominatim'] =
             new HandleNominatimSearch().formatDataForTheList(value.value);
-        } else if (value.type == 'layer') {
-          this.filterOptions['layer'] =
-            new HandleLayerSearch().formatDataForTheList(value.value);
+        } else if (value.type == 'alertes') {
+          console.log(value.value.hits);
+          this.filterOptions['alertes'] =
+            new HandleAlertesSearch().formatDataForTheList(value.value.hits);
+        } else if (value.type == 'ems') {
+          console.log(value.value.hits);
+          this.filterOptions['ems'] =
+            new HandleEmsSearch().formatDataForTheList(value.value.hits);
+        } else if (value.type == 'interventions') {
+          console.log(value.value.hits);
+          this.filterOptions['interventions'] =
+            new HandleInterventionsSearch().formatDataForTheList(
+              value.value.hits
+            );
+        } else if (value.type == 'pimpdms') {
+          console.log(value.value.hits);
+          this.filterOptions['pimpdms'] =
+            new HandlePimPdmsSearch().formatDataForTheList(value.value.hits);
         }
         this.isLoading = false;
         this.cleanFilterOptions();
@@ -266,6 +295,74 @@ export class SearchComponent implements OnInit {
           }),
           catchError((_err) =>
             of({ error: true, type: 'nominatim', value: { features: [] } })
+          )
+        )
+      );
+    }
+    if (this.storageService.alertes.value.data.length > 0) {
+      querryObs.push(
+        from(
+          this.apiService.postRequestFromOtherHost(
+            'https://meilisearch.rrm-cameroun.cm/indexes/alertes/search',
+            { q: value.toString() }
+          )
+        ).pipe(
+          map((val: { type: String; value: any }) => {
+            return { type: 'alertes', value: val, error: false };
+          }),
+          catchError((_err) =>
+            of({ error: true, type: 'alertes', value: { features: [] } })
+          )
+        )
+      );
+    }
+    if (this.storageService.ems.value.data.length > 0) {
+      querryObs.push(
+        from(
+          this.apiService.postRequestFromOtherHost(
+            'https://meilisearch.rrm-cameroun.cm/indexes/ems/search',
+            { q: value.toString() }
+          )
+        ).pipe(
+          map((val: { type: String; value: any }) => {
+            return { type: 'ems', value: val, error: false };
+          }),
+          catchError((_err) =>
+            of({ error: true, type: 'ems', value: { features: [] } })
+          )
+        )
+      );
+    }
+    if (this.storageService.interventions.value.data.length > 0) {
+      querryObs.push(
+        from(
+          this.apiService.postRequestFromOtherHost(
+            'https://meilisearch.rrm-cameroun.cm/indexes/interventions/search',
+            { q: value.toString() }
+          )
+        ).pipe(
+          map((val: { type: String; value: any }) => {
+            return { type: 'interventions', value: val, error: false };
+          }),
+          catchError((_err) =>
+            of({ error: true, type: 'interventions', value: { features: [] } })
+          )
+        )
+      );
+    }
+    if (this.storageService.pimpdms.value.data.length > 0) {
+      querryObs.push(
+        from(
+          this.apiService.postRequestFromOtherHost(
+            'https://meilisearch.rrm-cameroun.cm/indexes/pimpdms/search',
+            { q: value.toString() }
+          )
+        ).pipe(
+          map((val: { type: String; value: any }) => {
+            return { type: 'pimpdms', value: val, error: false };
+          }),
+          catchError((_err) =>
+            of({ error: true, type: 'pimpdms', value: { features: [] } })
           )
         )
       );
