@@ -136,6 +136,23 @@ $height: calc(100% - 60px);
   z-index: 99999999999;
 }
 
+app-rrm-modal {
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  height: 90px;
+  display: block;
+  z-index: 1000;
+  padding: 25px;
+  width: 400px;
+  float: left;
+  margin-right: 65px;
+  margin-top: 10px;
+  margin-left: 330px;
+  border-radius: 10px;
+  color: black;
+}
+
 .sidenav-container {
   width: 100%;
   height: $height;

@@ -145,12 +145,12 @@ export class VerticalToolbarComponent implements OnInit {
     this.map?.addOverlay(popup_mapillary);
 
     var target = this.map?.getTarget();
-    var jTarget = typeof target === 'string' ? $('#' + target) : $(target);
+    var jTarget = typeof target === 'string' ? $('#' + target) : $(target!);
     var cursor_on_popup = false;
     var popup_once_open = false;
 
-    $(this.map?.getViewport()).on('mousemove', (evt) => {
-      var pixel = this.map?.getEventPixel(evt.originalEvent);
+    $(this.map?.getViewport()!).on('mousemove', (evt) => {
+      var pixel = this.map?.getEventPixel(evt.originalEvent!);
 
       this.map?.forEachLayerAtPixel(pixel!, (layer) => {
         if (layer.get('type') != 'mapillary') {
@@ -294,8 +294,10 @@ export class VerticalToolbarComponent implements OnInit {
   toogleLeftSidenav() {
     if (this.sidenavContainer?.start?.opened) {
       this.sidenavContainer.start.close();
+      $('app-rrm-modal').css('margin-left', '70px');
     } else {
       this.sidenavContainer?.start?.open();
+      $('app-rrm-modal').css('margin-left', '330px');
     }
   }
 
