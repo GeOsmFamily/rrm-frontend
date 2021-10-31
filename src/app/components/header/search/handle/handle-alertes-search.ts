@@ -3,6 +3,7 @@ import { AppInjector } from './../../../../helpers/injectorHelper';
 import { StorageServiceService } from 'src/app/services/storage/storage-service.service';
 import { FilterOptionInterface } from 'src/app/interfaces/filterOptionInterface';
 import { MapHelper } from 'src/app/helpers/mapHelper';
+import { environment } from 'src/environments/environment';
 export class HandleAlertesSearch {
   storageService: StorageServiceService = AppInjector.get(
     StorageServiceService
@@ -93,6 +94,26 @@ export class HandleAlertesSearch {
 
         feature.set('textLabel', textLabel);
         feature.set('rrm', 'alertes');
+        feature.set('acteur', emprise.acteur);
+        feature.set('arrondissement', emprise.arrondissement);
+        feature.set('dateAlerte', emprise.dateAlerte);
+        feature.set('departement', emprise.departement);
+        feature.set('menagesAffectes', emprise.menagesAffectes);
+        feature.set('personnesAffectees', emprise.personnesAffectees);
+        feature.set('resume', emprise.resume);
+        feature.set('typeChoc', emprise.typeChoc);
+        let obj = JSON.parse(emprise.fichierAlerte);
+        try {
+          feature.set(
+            'urlRapport',
+            environment.url_dashboard + 'storage/' + obj[0].download_link
+          );
+          feature.set('originalName', obj[0].original_name);
+        } catch (error) {
+          feature.set('urlRapport', null);
+          feature.set('originalName', null);
+        }
+
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();

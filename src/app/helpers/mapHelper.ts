@@ -815,6 +815,20 @@ export class MapHelper {
 
           callback(data_callback);
         }
+      } else {
+        console.log(1);
+        var coord = this.map?.getCoordinateFromPixel(pixel!);
+        var data_callback: DataFromClickOnMapInterface = {
+          type: 'search',
+          data: {
+            coord: coord!,
+            layers: [layer],
+            feature: feature,
+            data: feature.getProperties(),
+          },
+        };
+
+        callback(data_callback);
       }
     } else if (layers.length > 0) {
       var coord = this.map?.getCoordinateFromPixel(pixel!);

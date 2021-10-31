@@ -1,0 +1,293 @@
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Code de la PIM/PDM
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['textLabel']}}
+  </div>
+</div>
+
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Département
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['departement']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Arrondissement
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['arrondissement']}}
+  </div>
+</div>
+
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Date de la PIM/PDM
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['datePIMPDM']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Acteur
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['acteur']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenairesPositionnes'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Positionnés suite à l'alerte
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenairesPositionnes']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenaireEHA'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Secteur EHA
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenaireEHA']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenaireAME'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Secteur AME-Abris
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenaireAME']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenaireAlimentaire'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Secteur Asiistance Alimentaire
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenaireAlimentaire']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenaireSante'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Secteur Santé
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenaireSante']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenaireNutrition'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Secteur Nutrition
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenaireNutrition']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenaireProtectio'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Secteur Protection
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenaireProtectio']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['partenaireEduction'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Partenaires Secteur Education
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['partenaireEduction']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['totalBeneficiaire'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Total Bénéficiaires
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['totalBeneficiaire']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['menagesSatisfaits'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Proportions des Ménages Satisfaits de l'intervention
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['menagesSatisfaits']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['menagesSatisfaitEHA'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Ménages Satisfaits EHA
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['menagesSatisfaitEHA']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['menagesSatisfaitAM'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Ménages Satisfaits AME
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['menagesSatisfaitAM']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['menagesSatisfaitAbris'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Ménages Satisfaits Abris
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['menagesSatisfaitAbris']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['pourcentageMenageScoreAME'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Pourcentage de ménages beneficiaires ayant un score AME < 3.9 : </div> <div fxFlex class="attribute-value">
+      {{ descriptiveModel!.properties['pourcentageMenageScoreAME']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['pourcentageMenageScoreAbris'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Pourcentage de ménages beneficiaires ayant un score Abris < 3.9 : </div> <div fxFlex class="attribute-value">
+      {{ descriptiveModel!.properties['pourcentageMenageScoreAbris']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['pourcentagePopulationSCA'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Pourcentage population ayant un score de consommation alimentaire acceptable : </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['pourcentagePopulationSCA']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['pourcentageMenageDiversiteAlimentaire'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Pourcentage population ayant amélioré leur score de diversité alimentaire : </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['pourcentageMenageDiversiteAlimentaire']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['pourcentageMenageScoreISA'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Pourcentage ménages cibles qui atteint un scor ISA < 19 : </div> <div fxFlex class="attribute-value">
+      {{ descriptiveModel!.properties['pourcentageMenageScoreISA']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['proportionMenageEau'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Proportions de ménages ayant moins de 7.5L d'eau par personne jour: </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['proportionMenageEau']}}
+  </div>
+</div>
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['proportionMenageLavageMain'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    proportion des ménages Connaissant des moments clés de lavage des mains
+    : </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['proportionMenageLavageMain']}}
+  </div>
+</div>
+
+
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+  *ngIf="descriptiveModel!.properties['resume'] !== null">
+  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+    Résumé
+    :
+  </div>
+  <div fxFlex class="attribute-value">
+    {{ descriptiveModel!.properties['resume']}}
+  </div>
+</div>

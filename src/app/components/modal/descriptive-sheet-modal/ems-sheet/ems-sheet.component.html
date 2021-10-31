@@ -1,0 +1,89 @@
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     code de l'EMS
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['textLabel']}}
+   </div>
+ </div>
+
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     Département
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['departement']}}
+   </div>
+ </div>
+
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     Arrondissement
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['arrondissement']}}
+   </div>
+ </div>
+
+
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     Date de l'EMS
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['dateEms']}}
+   </div>
+ </div>
+
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     Acteur
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['acteur']}}
+   </div>
+ </div>
+
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     Ménages Touchés
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['menagesTouches']}}
+   </div>
+ </div>
+
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     Personnes Ayant besoin d'assistance
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['personnesAssistances']}}
+   </div>
+ </div>
+
+ <div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
+   *ngIf="descriptiveModel!.properties['resume'] !== null">
+   <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
+    font-weight: bold;">
+     Résumé
+     :
+   </div>
+   <div fxFlex class="attribute-value">
+     {{ descriptiveModel!.properties['resume']}}
+   </div>
+ </div>

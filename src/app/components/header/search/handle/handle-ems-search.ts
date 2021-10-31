@@ -2,6 +2,7 @@ import { Feature } from 'src/app/modules/ol';
 import { FilterOptionInterface } from 'src/app/interfaces/filterOptionInterface';
 import GeoJSON from 'ol/format/GeoJSON';
 import { MapHelper } from 'src/app/helpers/mapHelper';
+import { environment } from 'src/environments/environment';
 export class HandleEmsSearch {
   formatDataForTheList(responseData: any): Array<FilterOptionInterface> {
     var responses = Array();
@@ -97,9 +98,29 @@ export class HandleEmsSearch {
 
         var feature = new Feature();
         var textLabel = emprise.name;
-
+        console.log(emprise);
         feature.set('textLabel', textLabel);
         feature.set('rrm', 'ems');
+
+        feature.set('acteur', emprise.acteur);
+        feature.set('arrondissement', emprise.arrondissement);
+        feature.set('dateEms', emprise.dateEMS);
+        feature.set('departement', emprise.departement);
+        feature.set('menagesTouches', emprise.menagesTouches);
+        feature.set('personnesAssistances', emprise.personnesAssistances);
+        feature.set('resume', emprise.resume);
+        let obj = JSON.parse(emprise.fichierEMS);
+        try {
+          feature.set(
+            'urlRapport',
+            environment.url_dashboard + 'storage/' + obj[0].download_link
+          );
+          feature.set('originalName', obj[0].original_name);
+        } catch (error) {
+          feature.set('urlRapport', null);
+          feature.set('originalName', null);
+        }
+
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();

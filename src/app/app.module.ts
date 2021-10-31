@@ -70,6 +70,10 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { environment } from 'src/environments/environment';
 import { DashboardServiceService } from './services/dashboard/dashboard-service.service';
 import { GroupeRrmComponent } from './components/map/vertical-page-left/vertical-page-principal/groupe-rrm/groupe-rrm.component';
+import { AlerteSheetComponent } from './components/modal/descriptive-sheet-modal/alerte-sheet/alerte-sheet.component';
+import { EmsSheetComponent } from './components/modal/descriptive-sheet-modal/ems-sheet/ems-sheet.component';
+import { InterventionSheetComponent } from './components/modal/descriptive-sheet-modal/intervention-sheet/intervention-sheet.component';
+import { PimpdmSheetComponent } from './components/modal/descriptive-sheet-modal/pimpdm-sheet/pimpdm-sheet.component';
 
 const customConfig: ShareButtonsConfig = {
   include: ['copy', 'facebook', 'twitter', 'linkedin', 'messenger', 'whatsapp'],
@@ -124,6 +128,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ListGeosignetComponent,
     CommentComponent,
     GroupeRrmComponent,
+    AlerteSheetComponent,
+    EmsSheetComponent,
+    InterventionSheetComponent,
+    PimpdmSheetComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

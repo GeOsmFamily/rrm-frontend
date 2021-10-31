@@ -174,7 +174,6 @@ export class MapComponent implements OnInit {
       const client = new MeiliSearch({
         host: 'https://meilisearch.rrm-cameroun.cm',
       });
-      // client.index('alertes').deleteIfExists();
       client
         .index('alertes')
         .addDocuments(alertes.data)
@@ -194,8 +193,6 @@ export class MapComponent implements OnInit {
         .index('pimpdms')
         .addDocuments(pimpdms.data)
         .then((res) => console.log(res));
-
-      this.notifier.notify('success', 'Chargement des données RRM terminé');
     });
 
     map.setTarget('map');
@@ -345,6 +342,7 @@ export class MapComponent implements OnInit {
         let mapHelper = new MapHelper();
 
         mapHelper.mapHasCliked(evt, (data: DataFromClickOnMapInterface) => {
+          console.log(data);
           if (data.type == 'raster') {
             var layers = data.data.layers.sort(compare);
             var layerTopZindex = layers.length > 0 ? layers[0] : undefined;
@@ -368,6 +366,23 @@ export class MapComponent implements OnInit {
               var descriptionSheetCapabilities = layerTopZindex.get(
                 'descriptionSheetCapabilities'
               );
+              this.componentHelper.openDescriptiveSheet(
+                descriptionSheetCapabilities,
+                mapHelper.constructAlyerInMap(layerTopZindex),
+                //@ts-ignore
+                data.data.coord,
+                data.data.feature?.getGeometry(),
+                data.data.feature?.getProperties()
+              );
+            }
+          } else if (data.type == 'search') {
+            var layers = data.data.layers.sort(compare);
+            var layerTopZindex = layers.length > 0 ? layers[0] : undefined;
+
+            if (layerTopZindex) {
+              var descriptionSheetCapabilities =
+                layerTopZindex.get('type_layer');
+              console.log(data.data.feature?.getProperties());
               this.componentHelper.openDescriptiveSheet(
                 descriptionSheetCapabilities,
                 mapHelper.constructAlyerInMap(layerTopZindex),

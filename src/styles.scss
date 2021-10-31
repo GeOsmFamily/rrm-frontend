@@ -90,19 +90,19 @@ input {
 
 /* ////////////////////////////////////////// //spiner ////////////// */
 .scroll::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px #f7f7f7;
-  box-shadow: inset 0 0 6px #f7f7f7;
-  background-color: #f7f7f7;
+  -webkit-box-shadow: inset 0 0 6px #f7f7f746;
+  box-shadow: inset 0 0 6px #f7f7f746;
+  background-color: #f7f7f746;
   // border-radius: 10px;
 }
 
 .scroll::-webkit-scrollbar {
   width: 5px;
-  background-color: #f7f7f7;
+  background-color: #f7f7f746;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-  background-color: #f7f7f7;
+  background-color: #f7f7f746;
   border-radius: 10px;
 
 }
@@ -130,15 +130,15 @@ input {
 }
 
 mat-dialog-container::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px #f7f7f7;
-  box-shadow: inset 0 0 6px #f7f7f7;
-  background-color: #f7f7f7;
+  -webkit-box-shadow: inset 0 0 6px #f7f7f746;
+  box-shadow: inset 0 0 6px #f7f7f746;
+  background-color: #f7f7f746;
   // border-radius: 10px;
 }
 
 mat-dialog-container::-webkit-scrollbar {
   width: 5px;
-  background-color: #f7f7f7;
+  background-color: #f7f7f746;
 }
 
 mat-dialog-container::-webkit-scrollbar-thumb {

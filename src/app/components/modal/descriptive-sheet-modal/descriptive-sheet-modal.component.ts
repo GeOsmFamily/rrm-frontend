@@ -22,6 +22,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DescriptiveSheet } from 'src/app/interfaces/DescriptiveSheet';
 import { MapHelper } from 'src/app/helpers/mapHelper';
 import { environment } from 'src/environments/environment';
+import * as FileSaver from 'file-saver';
 
 @Component({
   selector: 'app-descriptive-sheet-modal',
@@ -88,20 +89,32 @@ export class DescriptiveSheetModalComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.initialiseHightLightMap();
 
-    if (this.descriptiveModel?.layer?.properties!['type'] == 'couche') {
-      this.imgSrc =
-        environment.url_prefix +
-        this.storageService.getCouche(
-          this.descriptiveModel.layer.properties['group_id'],
-          this.descriptiveModel.layer.properties['couche_id']
-        ).img;
-    } else if (this.descriptiveModel?.layer?.properties!['type'] == 'carte') {
-      this.imgSrc =
-        environment.url_prefix +
-        this.storageService.getCarte(
-          this.descriptiveModel.layer.properties['group_id'],
-          this.descriptiveModel.layer.properties['couche_id']
-        ).image_src;
+    /*  if (this.descriptiveModel.layer.properties!['type']) {
+      if (this.descriptiveModel?.layer?.properties!['type'] == 'couche') {
+        this.imgSrc =
+          environment.url_prefix +
+          this.storageService.getCouche(
+            this.descriptiveModel.layer.properties['group_id'],
+            this.descriptiveModel.layer.properties['couche_id']
+          ).img;
+      } else if (this.descriptiveModel?.layer?.properties!['type'] == 'carte') {
+        this.imgSrc =
+          environment.url_prefix +
+          this.storageService.getCarte(
+            this.descriptiveModel.layer.properties['group_id'],
+            this.descriptiveModel.layer.properties['couche_id']
+          ).image_src;
+      }
+    }*/
+
+    if (this.descriptiveModel.properties['rrm'] == 'alertes') {
+      this.imgSrc = '/assets/images/Alertes-cir.svg';
+    } else if (this.descriptiveModel.properties['rrm'] == 'ems') {
+      this.imgSrc = '/assets/images/MSA-cir.svg';
+    } else if (this.descriptiveModel.properties['rrm'] == 'interventions') {
+      this.imgSrc = '/assets/images/Interventions-cir.svg';
+    } else if (this.descriptiveModel.properties['rrm'] == 'pimpdms') {
+      this.imgSrc = '/assets/images/PDM_cir.svg';
     }
 
     if (this.descriptiveModel.geometry) {
@@ -164,5 +177,12 @@ export class DescriptiveSheetModalComponent implements OnInit, OnChanges {
     if (this.descriptiveModel.geometry) {
       this.loadGeometryInHightLightLayer();
     }
+  }
+
+  downloadRapport() {
+    FileSaver.saveAs(
+      this.descriptiveModel.properties['urlRapport'],
+      this.descriptiveModel.properties['originalName']
+    );
   }
 }

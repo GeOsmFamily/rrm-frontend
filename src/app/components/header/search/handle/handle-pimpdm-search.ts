@@ -1,3 +1,4 @@
+import { environment } from './../../../../../environments/environment';
 import { Feature } from 'src/app/modules/ol';
 import { FilterOptionInterface } from 'src/app/interfaces/filterOptionInterface';
 import GeoJSON from 'ol/format/GeoJSON';
@@ -98,8 +99,64 @@ export class HandlePimPdmsSearch {
         var feature = new Feature();
         var textLabel = emprise.name;
 
+        console.log(emprise);
+
         feature.set('textLabel', textLabel);
         feature.set('rrm', 'pimpdms');
+        feature.set('acteur', emprise.acteur);
+        feature.set('arrondissement', emprise.arrondissement);
+        feature.set('datePIMPDM', emprise.datePIMPDM);
+        feature.set('departement', emprise.departement);
+        feature.set('menagesSatisfaitAM', emprise.menagesSatisfaitAM);
+        feature.set('menagesSatisfaitAbris', emprise.menagesSatisfaitAbris);
+        feature.set('menagesSatisfaitEHA', emprise.menagesSatisfaitEHA);
+        feature.set('menagesSatisfaits', emprise.menagesSatisfaits);
+        feature.set('partenaireAME', emprise.partenaireAME);
+        feature.set('partenaireAlimentaire', emprise.partenaireAlimentaire);
+        feature.set('partenaireEHA', emprise.partenaireEHA);
+        feature.set('partenaireEduction', emprise.partenaireEduction);
+        feature.set('partenaireNutrition', emprise.partenaireNutrition);
+        feature.set('partenaireProtectio', emprise.partenaireProtectio);
+        feature.set('partenaireSante', emprise.partenaireSante);
+        feature.set('partenairesPositionnes', emprise.partenairesPositionnes);
+        feature.set(
+          'pourcentageMenageDiversiteAlimentaire',
+          emprise.pourcentageMenageDiversiteAlimentaire
+        );
+        feature.set(
+          'pourcentageMenageScoreAME',
+          emprise.pourcentageMenageScoreAME
+        );
+        feature.set(
+          'pourcentageMenageScoreAbris',
+          emprise.pourcentageMenageScoreAbris
+        );
+        feature.set(
+          'pourcentageMenageScoreISA',
+          emprise.pourcentageMenageScoreISA
+        );
+        feature.set(
+          'pourcentagePopulationSCA',
+          emprise.pourcentagePopulationSCA
+        );
+        feature.set('proportionMenageEau', emprise.proportionMenageEau);
+        feature.set(
+          'proportionMenageLavageMain',
+          emprise.proportionMenageLavageMain
+        );
+        feature.set('totalBeneficiaire', emprise.totalBeneficiaire);
+        feature.set('resume', emprise.resume);
+        let obj = JSON.parse(emprise.fichierPIMPDM);
+        try {
+          feature.set(
+            'urlRapport',
+            environment.url_dashboard + 'storage/' + obj[0].download_link
+          );
+          feature.set('originalName', obj[0].original_name);
+        } catch (error) {
+          feature.set('urlRapport', null);
+          feature.set('originalName', null);
+        }
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();

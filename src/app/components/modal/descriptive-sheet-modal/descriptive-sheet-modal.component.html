@@ -5,21 +5,38 @@
   <em class="fa fa-times-circle close" (click)="closeModal()"></em>
   <em class="fa fa-arrows-alt white" style="font-size:20px" aria-hidden="true"></em>
 
-  {{ descriptiveModel.layer.nom}}
+  {{ descriptiveModel.properties['textLabel']}}
 </h1>
 
 <div mat-dialog-content style="padding-top: 5px;max-height: 250px !important;" class="scroll">
-  <app-osm-sheet *ngIf="descriptiveModel.type === 'osm'" [descriptiveModel]="descriptiveModel"
-    (updatemMdelDescriptiveSheet)="setSescriptiveModel($event)" (closeDescriptiveSheet)="closeModal()"></app-osm-sheet>
+  <div *ngIf="descriptiveModel.properties['rrm'] === 'alertes'">
+    <app-alerte-sheet [descriptiveModel]=descriptiveModel></app-alerte-sheet>
+  </div>
+
+
+  <div *ngIf="descriptiveModel.properties['rrm'] === 'ems'">
+    <app-ems-sheet [descriptiveModel]=descriptiveModel></app-ems-sheet>
+  </div>
+
+  <div *ngIf="descriptiveModel.properties['rrm'] === 'interventions'">
+    <app-intervention-sheet [descriptiveModel]=descriptiveModel></app-intervention-sheet>
+  </div>
+
+  <div *ngIf="descriptiveModel.properties['rrm'] === 'pimpdms'">
+    <app-pimpdm-sheet [descriptiveModel]=descriptiveModel></app-pimpdm-sheet>
+  </div>
+
+
 </div>
 
 <div mat-dialog-actions class="text-center">
-  <button mat-raised-button (click)="shareFeature()">
-    <em class="fa fa-share-alt"> </em> {{'descriptive_sheet.share' | translate}}
-  </button>
 
   <button mat-raised-button *ngIf="descriptiveModel.geometry" (click)="zoomOnFeatureExtent()">
     <em class="fa fa-search-plus"> </em> {{'descriptive_sheet.zoomTo' | translate}}
+  </button>
+
+  <button mat-raised-button *ngIf="descriptiveModel.properties['urlRapport'] !==null" (click)="downloadRapport()">
+    <em class="fa fa-download-plus"> </em> Telecharger le Rapport
   </button>
 
 </div>

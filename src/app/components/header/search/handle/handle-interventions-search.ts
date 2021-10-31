@@ -1,3 +1,4 @@
+import { environment } from './../../../../../environments/environment';
 import { Feature } from 'src/app/modules/ol';
 import { FilterOptionInterface } from 'src/app/interfaces/filterOptionInterface';
 import GeoJSON from 'ol/format/GeoJSON';
@@ -100,6 +101,53 @@ export class HandleInterventionsSearch {
 
         feature.set('textLabel', textLabel);
         feature.set('rrm', 'interventions');
+        feature.set('acteur', emprise.acteur);
+        feature.set('arrondissement', emprise.arrondissement);
+        feature.set('dateIntervention', emprise.dateIntervention);
+        feature.set('departement', emprise.departement);
+        feature.set(
+          'beneficiaireAssistanceLatrine',
+          emprise.beneficiaireAssistanceLatrine
+        );
+        feature.set('beneficiaireFeminin', emprise.beneficiaireFeminin);
+        feature.set('beneficiaireHote', emprise.beneficiaireHote);
+        feature.set('beneficiaireHygiene', emprise.beneficiaireHygiene);
+        feature.set('beneficiaireIdp', emprise.beneficiaireIdp);
+        feature.set('beneficiaireMasculin', emprise.beneficiaireMasculin);
+        feature.set('beneficiaireRefugier', emprise.beneficiaireRefugier);
+        feature.set('beneficiaireRetournes', emprise.beneficiaireRetournes);
+        feature.set(
+          'beneficiairesAssistanceAlimentaire',
+          emprise.beneficiairesAssistanceAlimentaire
+        );
+        feature.set(
+          'beneficiairesAssistanceEau',
+          emprise.beneficiairesAssistanceEau
+        );
+        feature.set(
+          'beneficiairesMenagersEssentiels',
+          emprise.beneficiairesMenagersEssentiels
+        );
+        feature.set('individusBeneficiaire', emprise.individusBeneficiaire);
+        feature.set('kitAbrisDistribue', emprise.kitAbrisDistribue);
+        feature.set('kitArticleDistribue', emprise.kitArticleDistribue);
+        feature.set('latrinesConstruites', emprise.latrinesConstruites);
+        feature.set('menageBeneficiaire', emprise.menageBeneficiaire);
+        feature.set('pointEauChlores', emprise.pointEauChlores);
+        feature.set('pointsEau', emprise.pointsEau);
+        feature.set('secteurIntervention', emprise.secteurIntervention);
+        feature.set('resume', emprise.resume);
+        let obj = JSON.parse(emprise.fichierIntervention);
+        try {
+          feature.set(
+            'urlRapport',
+            environment.url_dashboard + 'storage/' + obj[0].download_link
+          );
+          feature.set('originalName', obj[0].original_name);
+        } catch (error) {
+          feature.set('urlRapport', null);
+          feature.set('originalName', null);
+        }
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();
