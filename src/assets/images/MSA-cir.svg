@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="12mm"
+   height="12mm"
+   viewBox="0 0 12 12"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="28.655748"
+     inkscape:cx="21.405142"
+     inkscape:cy="20.023716"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g835"
+     showgrid="false"
+     inkscape:window-width="3840"
+     inkscape:window-height="2115"
+     inkscape:window-x="-13"
+     inkscape:window-y="-13"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-285)">
+    <g
+       transform="translate(0.13056717,-0.00396859)"
+       id="layer1-6"
+       inkscape:label="Layer 1">
+      <circle
+         r="5.9473171"
+         cy="291.00726"
+         cx="5.9642243"
+         id="path848"
+         style="opacity:0.98000004;fill:#24b5ba;fill-opacity:1;stroke:#ffffff;stroke-width:0.10536566;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+      <g
+         id="g835"
+         transform="matrix(0.26458333,0,0,0.26458333,1.7888598,286.10171)">
+        <g
+           id="g829"
+           style="fill:none;stroke:#ffffff;stroke-width:3px"
+           transform="matrix(0.72996359,0,0,0.71999301,0.41876416,3.0360402)">
+          <circle
+             id="circle825"
+             r="21"
+             cy="21"
+             cx="21"
+             style="stroke:none" />
+          <circle
+             id="circle827"
+             r="19.5"
+             cy="21"
+             cx="21" />
+        </g>
+        <text
+           id="text833"
+           font-weight="700"
+           font-size="13px"
+           style="font-weight:700;font-size:8.77879715px;font-family:Montserrat-Bold, Montserrat;fill:#ffffff;stroke-width:0.67529207"
+           x="17.806925"
+           y="10.004533"
+           transform="scale(0.86437961,1.1568991)">
+          <tspan
+             id="tspan831"
+             y="18.783329"
+             x="7.452673"
+             style="stroke-width:0.67529207">MSA</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

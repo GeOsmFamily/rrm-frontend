@@ -99,6 +99,7 @@ export class HandleEmsSearch {
         var textLabel = emprise.name;
 
         feature.set('textLabel', textLabel);
+        feature.set('rrm', 'ems');
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();

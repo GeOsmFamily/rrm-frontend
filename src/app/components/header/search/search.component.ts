@@ -64,27 +64,6 @@ export class SearchComponent implements OnInit {
 
   objectsIn = Object.keys;
 
-  colors: Array<string> = [
-    '#04458F',
-    '#c3cf5f',
-    '#d68720',
-    '#7c3c80',
-    '#3c7080',
-    '#3c806a',
-    '#50803c',
-    '#6c803c',
-    '#806a3c',
-    '#80493c',
-    '#7d1a01',
-    '#7d013b',
-    '#457d01',
-    '#7d0103',
-    '#4ea4de',
-    '#9c282a',
-    '#468053',
-    '#d1611b',
-  ];
-
   searchResultLayer: VectorLayer = new VectorLayer({
     source: new VectorSource(),
     style: (feature) => {
@@ -120,10 +99,31 @@ export class SearchComponent implements OnInit {
           color: environment.primaryColor,
           width: 6,
         }),
-        image: new Icon({
-          scale: 0.7,
-          src: '/assets/icones/marker-search.png',
-        }),
+        image:
+          feature.get('rrm') == 'alertes'
+            ? new Icon({
+                scale: 0.7,
+                src: '/assets/images/Alertes-cir.svg',
+              })
+            : feature.get('rrm') == 'ems'
+            ? new Icon({
+                scale: 0.7,
+                src: '/assets/images/MSA-cir.svg',
+              })
+            : feature.get('rrm') == 'interventions'
+            ? new Icon({
+                scale: 0.7,
+                src: '/assets/images/Interventions-cir.svg',
+              })
+            : feature.get('rrm') == 'pimpdms'
+            ? new Icon({
+                scale: 0.7,
+                src: '/assets/images/PDM_cir.svg',
+              })
+            : new Icon({
+                scale: 0.7,
+                src: '/assets/icones/marker-search.png',
+              }),
         text: new Text(textStyle),
       });
     },
@@ -166,16 +166,12 @@ export class SearchComponent implements OnInit {
         new HandleNominatimSearch().optionSelected(option);
       } else if (option.typeOption == 'alertes') {
         new HandleAlertesSearch().optionSelected(option);
-        this.clearSearch();
       } else if (option.typeOption == 'ems') {
         new HandleEmsSearch().optionSelected(option);
-        this.clearSearch();
       } else if (option.typeOption == 'interventions') {
         new HandleInterventionsSearch().optionSelected(option);
-        this.clearSearch();
       } else if (option.typeOption == 'pimpdms') {
         new HandlePimPdmsSearch().optionSelected(option);
-        this.clearSearch();
       }
     }
   }
@@ -222,21 +218,17 @@ export class SearchComponent implements OnInit {
           this.filterOptions['nominatim'] =
             new HandleNominatimSearch().formatDataForTheList(value.value);
         } else if (value.type == 'alertes') {
-          console.log(value.value.hits);
           this.filterOptions['alertes'] =
             new HandleAlertesSearch().formatDataForTheList(value.value.hits);
         } else if (value.type == 'ems') {
-          console.log(value.value.hits);
           this.filterOptions['ems'] =
             new HandleEmsSearch().formatDataForTheList(value.value.hits);
         } else if (value.type == 'interventions') {
-          console.log(value.value.hits);
           this.filterOptions['interventions'] =
             new HandleInterventionsSearch().formatDataForTheList(
               value.value.hits
             );
         } else if (value.type == 'pimpdms') {
-          console.log(value.value.hits);
           this.filterOptions['pimpdms'] =
             new HandlePimPdmsSearch().formatDataForTheList(value.value.hits);
         }

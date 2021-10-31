@@ -99,6 +99,7 @@ export class HandleInterventionsSearch {
         var textLabel = emprise.name;
 
         feature.set('textLabel', textLabel);
+        feature.set('rrm', 'interventions');
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();

@@ -110,6 +110,7 @@ export class HandleNominatimSearch {
         });
 
         feature.set('textLabel', textLabel);
+        feature.set('rrm', 'nominatim');
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();

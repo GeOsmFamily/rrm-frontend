@@ -99,6 +99,7 @@ export class HandlePimPdmsSearch {
         var textLabel = emprise.name;
 
         feature.set('textLabel', textLabel);
+        feature.set('rrm', 'pimpdms');
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();

@@ -1,8 +1,7 @@
-import { Feature } from 'src/app/modules/ol';
+import { Feature, VectorLayer, GeoJSON } from 'src/app/modules/ol';
 import { AppInjector } from './../../../../helpers/injectorHelper';
 import { StorageServiceService } from 'src/app/services/storage/storage-service.service';
 import { FilterOptionInterface } from 'src/app/interfaces/filterOptionInterface';
-import GeoJSON from 'ol/format/GeoJSON';
 import { MapHelper } from 'src/app/helpers/mapHelper';
 export class HandleAlertesSearch {
   storageService: StorageServiceService = AppInjector.get(
@@ -25,22 +24,10 @@ export class HandleAlertesSearch {
       });
     });
 
-    var name = {
-      name: 'urn:ogc:def:crs:OGC:1.3:CRS84',
-    };
-
-    var crs = {
-      type: 'alertes',
-      properties: name,
-    };
-
     var geojson = {
       type: 'FeatureCollection',
-      crs: crs,
       features: responses,
     };
-
-    console.log(geojson);
 
     var response: Array<FilterOptionInterface> = [];
     for (let index = 0; index < geojson.features.length; index++) {
@@ -98,13 +85,14 @@ export class HandleAlertesSearch {
     if (emprise.geometry) {
       var mapHelper = new MapHelper();
       if (mapHelper.getLayerByName('searchResultLayer').length > 0) {
-        var searchResultLayer =
-          mapHelper.getLayerByName('searchResultLayer')[0];
+        var searchResultLayer = new VectorLayer();
+        searchResultLayer = mapHelper.getLayerByName('searchResultLayer')[0];
 
         var feature = new Feature();
         var textLabel = emprise.name;
 
         feature.set('textLabel', textLabel);
+        feature.set('rrm', 'alertes');
         feature.setGeometry(emprise.geometry);
 
         searchResultLayer.getSource().clear();
