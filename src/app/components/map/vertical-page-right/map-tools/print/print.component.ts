@@ -96,10 +96,10 @@ export class PrintComponent implements OnInit {
       var px = $('.ol-scale-line-inner').css('width');
 
       var numpx = px.replace(/\D+/g, '');
-      var distancecarte = numpx * 0.264583 * 0.1;
+      var distancecarte = +numpx * 0.264583 * 0.1;
 
       var scale = $('.ol-scale-line-inner').text();
-      var numscale = scale.replace(/\D+/g, '');
+      var numscale = +scale.replace(/\D+/g, '');
 
       var unit = scale.replace(/[0-9]/g, '');
 

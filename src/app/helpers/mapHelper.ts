@@ -49,6 +49,10 @@ const typeLayer = [
   'comments',
   'other',
   'routing',
+  'alertes',
+  'ems',
+  'interventions',
+  'pimpdms',
 ];
 
 @Injectable()
@@ -187,10 +191,10 @@ export class MapHelper {
   getCurrentMapExtent() {
     try {
       var coord_O_N = this.map?.getCoordinateFromPixel([
-        $('.mat-sidenav .sidenav-left').width(),
-        $(window).height(),
+        $('.mat-sidenav .sidenav-left').width()!,
+        $(window).height()!,
       ]);
-      var coord_E_S = this.map?.getCoordinateFromPixel([$(window).width(), 0]);
+      var coord_E_S = this.map?.getCoordinateFromPixel([$(window).width()!, 0]);
       var extent_view = boundingExtent([coord_O_N!, coord_E_S!]);
       return extent_view;
     } catch (error) {
@@ -802,6 +806,69 @@ export class MapHelper {
           var feat = this.getFeatureThatIsDisplayInCulster(
             feature.getProperties().features
           );
+          console.log(feat.getProperties().codeAlerte);
+          if ('codeAlerte' in feat.getProperties()) {
+            feat.set('rrm', 'alertes');
+            feat.set('textLabel', feat.getProperties().codeAlerte);
+            let obj = JSON.parse(feat.getProperties().fichierAlerte);
+            try {
+              feat.set(
+                'urlRapport',
+                environment.url_dashboard + 'storage/' + obj[0].download_link
+              );
+              feat.set('originalName', obj[0].original_name);
+            } catch (error) {
+              feat.set('urlRapport', null);
+              feat.set('originalName', null);
+            }
+          }
+          if ('codeEMS' in feat.getProperties()) {
+            feat.set('rrm', 'ems');
+            feat.set('textLabel', feat.getProperties().codeEMS);
+            feat.set('dateEms', feat.getProperties().dateEMS);
+            let obj = JSON.parse(feat.getProperties().fichierEMS);
+            try {
+              feat.set(
+                'urlRapport',
+                environment.url_dashboard + 'storage/' + obj[0].download_link
+              );
+              feat.set('originalName', obj[0].original_name);
+            } catch (error) {
+              feat.set('urlRapport', null);
+              feat.set('originalName', null);
+            }
+          }
+          if ('codeIntervention' in feat.getProperties()) {
+            feat.set('rrm', 'interventions');
+            feat.set('textLabel', feat.getProperties().codeIntervention);
+            let obj = JSON.parse(feat.getProperties().fichierIntervention);
+            try {
+              feat.set(
+                'urlRapport',
+                environment.url_dashboard + 'storage/' + obj[0].download_link
+              );
+              feat.set('originalName', obj[0].original_name);
+            } catch (error) {
+              feat.set('urlRapport', null);
+              feat.set('originalName', null);
+            }
+          }
+          if ('codePIMPDM' in feat.getProperties()) {
+            feat.set('rrm', 'pimpdms');
+            feat.set('textLabel', feat.getProperties().codePIMPDM);
+            let obj = JSON.parse(feat.getProperties().fichierPIMPDM);
+            try {
+              feat.set(
+                'urlRapport',
+                environment.url_dashboard + 'storage/' + obj[0].download_link
+              );
+              feat.set('originalName', obj[0].original_name);
+            } catch (error) {
+              feat.set('urlRapport', null);
+              feat.set('originalName', null);
+            }
+          }
+
           var coord = this.map?.getCoordinateFromPixel(pixel!);
           var data_callback: DataFromClickOnMapInterface = {
             type: 'vector',
@@ -809,7 +876,7 @@ export class MapHelper {
               coord: coord!,
               layers: [layer],
               feature: feat,
-              data: {},
+              data: feature.getProperties(),
             },
           };
 

@@ -171,6 +171,14 @@ export class MapComponent implements OnInit {
       var interventions = this.storageService.getInterventions();
       var pimpdms = this.storageService.getPimPdm();
 
+      localStorage.setItem('alerteCount', alertes.data.length.toString());
+      localStorage.setItem('emsCount', ems.data.length.toString());
+      localStorage.setItem(
+        'interventionCount',
+        interventions.data.length.toString()
+      );
+      localStorage.setItem('pimpdmCount', pimpdms.data.length.toString());
+
       const client = new MeiliSearch({
         host: 'https://meilisearch.rrm-cameroun.cm',
       });
@@ -363,9 +371,9 @@ export class MapComponent implements OnInit {
             var layerTopZindex = layers.length > 0 ? layers[0] : undefined;
 
             if (layerTopZindex) {
-              var descriptionSheetCapabilities = layerTopZindex.get(
-                'descriptionSheetCapabilities'
-              );
+              var descriptionSheetCapabilities =
+                layerTopZindex.get('type_layer');
+              console.log(data.data.feature?.getProperties());
               this.componentHelper.openDescriptiveSheet(
                 descriptionSheetCapabilities,
                 mapHelper.constructAlyerInMap(layerTopZindex),
