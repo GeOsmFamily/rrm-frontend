@@ -75,16 +75,18 @@ export class RrmModalComponent implements OnInit {
           var responses = Array();
 
           data.forEach((element) => {
-            var geometry = {
-              type: 'Point',
-              coordinates: [element.longitude, element.latitude],
-            };
+            if (element.valide == 'oui') {
+              var geometry = {
+                type: 'Point',
+                coordinates: [element.longitude, element.latitude],
+              };
 
-            responses.push({
-              type: 'Feature',
-              geometry: geometry,
-              properties: element,
-            });
+              responses.push({
+                type: 'Feature',
+                geometry: geometry,
+                properties: element,
+              });
+            }
           });
 
           var geojson = {
@@ -192,16 +194,21 @@ export class RrmModalComponent implements OnInit {
           var responses = Array();
 
           data.forEach((element) => {
-            var geometry = {
-              type: 'Point',
-              coordinates: [element.longitude, element.latitude],
-            };
+            var alertesUpload = localStorage
+              .getItem('alertesUpload')
+              ?.split(',');
+            if (alertesUpload?.includes(element.idAlerte.toString())) {
+              var geometry = {
+                type: 'Point',
+                coordinates: [element.longitude, element.latitude],
+              };
 
-            responses.push({
-              type: 'Feature',
-              geometry: geometry,
-              properties: element,
-            });
+              responses.push({
+                type: 'Feature',
+                geometry: geometry,
+                properties: element,
+              });
+            }
           });
 
           var geojson = {
@@ -309,16 +316,19 @@ export class RrmModalComponent implements OnInit {
           var responses = Array();
 
           data.forEach((element) => {
-            var geometry = {
-              type: 'Point',
-              coordinates: [element.longitude, element.latitude],
-            };
+            var emsUpload = localStorage.getItem('emsUpload')?.split(',');
+            if (emsUpload?.includes(element.idEms.toString())) {
+              var geometry = {
+                type: 'Point',
+                coordinates: [element.longitude, element.latitude],
+              };
 
-            responses.push({
-              type: 'Feature',
-              geometry: geometry,
-              properties: element,
-            });
+              responses.push({
+                type: 'Feature',
+                geometry: geometry,
+                properties: element,
+              });
+            }
           });
 
           var geojson = {
@@ -426,16 +436,23 @@ export class RrmModalComponent implements OnInit {
           var responses = Array();
 
           data.forEach((element) => {
-            var geometry = {
-              type: 'Point',
-              coordinates: [element.longitude, element.latitude],
-            };
+            var interventionsUpload = localStorage
+              .getItem('interventionsUpload')
+              ?.split(',');
+            if (
+              interventionsUpload?.includes(element.idIntervention.toString())
+            ) {
+              var geometry = {
+                type: 'Point',
+                coordinates: [element.longitude, element.latitude],
+              };
 
-            responses.push({
-              type: 'Feature',
-              geometry: geometry,
-              properties: element,
-            });
+              responses.push({
+                type: 'Feature',
+                geometry: geometry,
+                properties: element,
+              });
+            }
           });
 
           var geojson = {

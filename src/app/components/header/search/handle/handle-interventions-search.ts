@@ -8,16 +8,19 @@ export class HandleInterventionsSearch {
     var responses = Array();
 
     responseData.forEach((element) => {
-      var geometry = {
-        type: 'Point',
-        coordinates: [element.longitude, element.latitude],
-      };
+      var emsUpload = localStorage.getItem('emsUpload')?.split(',');
+      if (emsUpload?.includes(element.idEms.toString())) {
+        var geometry = {
+          type: 'Point',
+          coordinates: [element.longitude, element.latitude],
+        };
 
-      responses.push({
-        type: 'Feature',
-        geometry: geometry,
-        properties: element,
-      });
+        responses.push({
+          type: 'Feature',
+          geometry: geometry,
+          properties: element,
+        });
+      }
     });
 
     var name = {

@@ -8,16 +8,21 @@ export class HandlePimPdmsSearch {
     var responses = Array();
 
     responseData.forEach((element) => {
-      var geometry = {
-        type: 'Point',
-        coordinates: [element.longitude, element.latitude],
-      };
+      var interventionsUpload = localStorage
+        .getItem('interventionsUpload')
+        ?.split(',');
+      if (interventionsUpload?.includes(element.idIntervention.toString())) {
+        var geometry = {
+          type: 'Point',
+          coordinates: [element.longitude, element.latitude],
+        };
 
-      responses.push({
-        type: 'Feature',
-        geometry: geometry,
-        properties: element,
-      });
+        responses.push({
+          type: 'Feature',
+          geometry: geometry,
+          properties: element,
+        });
+      }
     });
 
     var name = {

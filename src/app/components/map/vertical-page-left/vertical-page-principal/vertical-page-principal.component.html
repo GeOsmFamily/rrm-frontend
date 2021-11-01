@@ -65,19 +65,12 @@ l1-9C3047.3-512.3,3044.6-511.8,3042.1-510.8z" />
 
 <div style="margin-top: 20px" *ngIf="!displayLabelForBibliothequeArborescence()"></div>
 
-<h4 class="bold primaryColor primary_transparent_bg arborescence-group">Indicateurs RRM</h4>
-<div class="arborescence-groupe-thematique" *ngFor="
-    let groupThematique of storageService.getAllGroupThematiques()
-      | sortBy: 'asc':'ordre'
-  ">
-  <app-groupe-rrm class="pointer"></app-groupe-rrm>
-</div>
-
-<h4 class="bold primaryColor primary_transparent_bg arborescence-group">Autres</h4>
-<div class="arborescence-groupe-thematique" *ngFor="
-    let groupThematique of storageService.getAllGroupThematiques()
-      | sortBy: 'asc':'ordre'
-  ">
-  <app-groupe-thematique (click)="openGroupThematiqueSlide(groupThematique)" class="pointer"
-    [groupThematique]="groupThematique"></app-groupe-thematique>
-</div>
+<h4 class="bold primaryColor primary_transparent_bg arborescence-group">Nous Contacter</h4>
+<mat-card>
+  <p style="font-weight: bold;">Cécile Varboom – Alifa :</p>
+  cdm-adj-prog@premiere-urgence.cm
+  <p style="font-weight: bold;">Tel:</p> +237697457285
+  <p style="font-weight: bold;">Ou</p>
+  <p>mar.rrm.coordo@premiere-urgence.cm</p>
+  <p style="font-weight: bold;">Tel:</p> +237691631469
+</mat-card>

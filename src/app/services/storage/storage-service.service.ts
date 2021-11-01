@@ -120,11 +120,122 @@ export class StorageServiceService {
         from(this.dashboardService.getRequest('api/ems')),
         from(this.dashboardService.getRequest('api/interventions')),
         from(this.dashboardService.getRequest('api/pimpdms')),
+        from(this.dashboardService.getRequest('api/alertes?page=2')),
+        from(this.dashboardService.getRequest('api/alertes?page=3')),
+        from(this.dashboardService.getRequest('api/alertes?page=4')),
+        from(this.dashboardService.getRequest('api/alertes?page=5')),
+        from(this.dashboardService.getRequest('api/alertes?page=6')),
+
+        from(this.dashboardService.getRequest('api/ems?page=2')),
+        from(this.dashboardService.getRequest('api/ems?page=3')),
+        from(this.dashboardService.getRequest('api/ems?page=4')),
+        from(this.dashboardService.getRequest('api/ems?page=5')),
+        from(this.dashboardService.getRequest('api/ems?page=6')),
+
+        from(this.dashboardService.getRequest('api/interventions?page=2')),
+        from(this.dashboardService.getRequest('api/interventions?page=3')),
+        from(this.dashboardService.getRequest('api/interventions?page=4')),
+        from(this.dashboardService.getRequest('api/interventions?page=5')),
+        from(this.dashboardService.getRequest('api/interventions?page=6')),
+
+        from(this.dashboardService.getRequest('api/pimpdms?page=2')),
+        from(this.dashboardService.getRequest('api/pimpdms?page=3')),
+        from(this.dashboardService.getRequest('api/pimpdms?page=4')),
+        from(this.dashboardService.getRequest('api/pimpdms?page=5')),
+        from(this.dashboardService.getRequest('api/pimpdms?page=6')),
       ])
         .pipe(catchError((err) => of({ error: true, msg: err })))
         .subscribe((results) => {
+          var data = results[0]['data'];
+          for (let index = 0; index < results[4]['data'].length; index++) {
+            const element = results[4]['data'][index];
+            data.push(element);
+          }
+          for (let index = 0; index < results[5]['data'].length; index++) {
+            const element = results[5]['data'][index];
+            data.push(element);
+          }
+          for (let index = 0; index < results[6]['data'].length; index++) {
+            const element = results[6]['data'][index];
+            data.push(element);
+          }
+          for (let index = 0; index < results[7]['data'].length; index++) {
+            const element = results[7]['data'][index];
+            data.push(element);
+          }
+          for (let index = 0; index < results[8]['data'].length; index++) {
+            const element = results[8]['data'][index];
+            data.push(element);
+          }
+
+          var data1 = results[1]['data'];
+          for (let index = 0; index < results[9]['data'].length; index++) {
+            const element = results[9]['data'][index];
+            data1.push(element);
+          }
+          for (let index = 0; index < results[10]['data'].length; index++) {
+            const element = results[10]['data'][index];
+            data1.push(element);
+          }
+          for (let index = 0; index < results[11]['data'].length; index++) {
+            const element = results[11]['data'][index];
+            data1.push(element);
+          }
+          for (let index = 0; index < results[12]['data'].length; index++) {
+            const element = results[12]['data'][index];
+            data1.push(element);
+          }
+          for (let index = 0; index < results[13]['data'].length; index++) {
+            const element = results[13]['data'][index];
+            data1.push(element);
+          }
+
+          var data2 = results[2]['data'];
+          for (let index = 0; index < results[14]['data'].length; index++) {
+            const element = results[14]['data'][index];
+            data2.push(element);
+          }
+          for (let index = 0; index < results[15]['data'].length; index++) {
+            const element = results[15]['data'][index];
+            data2.push(element);
+          }
+          for (let index = 0; index < results[16]['data'].length; index++) {
+            const element = results[16]['data'][index];
+            data2.push(element);
+          }
+          for (let index = 0; index < results[17]['data'].length; index++) {
+            const element = results[17]['data'][index];
+            data2.push(element);
+          }
+          for (let index = 0; index < results[18]['data'].length; index++) {
+            const element = results[18]['data'][index];
+            data2.push(element);
+          }
+
+          var data3 = results[3]['data'];
+          for (let index = 0; index < results[19]['data'].length; index++) {
+            const element = results[19]['data'][index];
+            data3.push(element);
+          }
+          for (let index = 0; index < results[20]['data'].length; index++) {
+            const element = results[20]['data'][index];
+            data3.push(element);
+          }
+          for (let index = 0; index < results[21]['data'].length; index++) {
+            const element = results[21]['data'][index];
+            data3.push(element);
+          }
+          for (let index = 0; index < results[22]['data'].length; index++) {
+            const element = results[22]['data'][index];
+            data3.push(element);
+          }
+          for (let index = 0; index < results[23]['data'].length; index++) {
+            const element = results[23]['data'][index];
+            data3.push(element);
+          }
+
           this.alertes.next({
-            data: results[0]['data'],
+            data: data,
             links: results[0]['links'],
             actions: results[0]['actions'],
             defaultSearchKey: results[0]['defaultSearchKey'],
@@ -140,7 +251,7 @@ export class StorageServiceService {
           });
 
           this.ems.next({
-            data: results[1]['data'],
+            data: data1,
             links: results[1]['links'],
             actions: results[1]['actions'],
             defaultSearchKey: results[1]['defaultSearchKey'],
@@ -156,7 +267,7 @@ export class StorageServiceService {
           });
 
           this.interventions.next({
-            data: results[2]['data'],
+            data: data2,
             links: results[2]['links'],
             actions: results[2]['actions'],
             defaultSearchKey: results[2]['defaultSearchKey'],
@@ -172,7 +283,7 @@ export class StorageServiceService {
           });
 
           this.pimpdms.next({
-            data: results[3]['data'],
+            data: data3,
             links: results[3]['links'],
             actions: results[3]['actions'],
             defaultSearchKey: results[3]['defaultSearchKey'],

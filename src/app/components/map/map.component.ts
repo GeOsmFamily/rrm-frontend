@@ -171,35 +171,86 @@ export class MapComponent implements OnInit {
       var interventions = this.storageService.getInterventions();
       var pimpdms = this.storageService.getPimPdm();
 
-      localStorage.setItem('alerteCount', alertes.data.length.toString());
-      localStorage.setItem('emsCount', ems.data.length.toString());
+      var alertesUpload = Array();
+      for (let index = 0; index < alertes.data.length; index++) {
+        const element = alertes.data[index];
+        if (element.valide == 'oui') {
+          alertesUpload.push(element);
+        }
+      }
+
+      console.log(alertesUpload.length);
+
+      var emsUpload = Array();
+      for (let index = 0; index < ems.data.length; index++) {
+        let result = alertesUpload.map((a) => a.id);
+        localStorage.setItem('alertesUpload', result.toString());
+        const element = ems.data[index];
+        if (result.includes(element.idAlerte)) {
+          emsUpload.push(element);
+        }
+      }
+
+      console.log(emsUpload.length);
+
+      var interventionsUpload = Array();
+      for (let index = 0; index < interventions.data.length; index++) {
+        let result = emsUpload.map((a) => a.id);
+        localStorage.setItem('emsUpload', result.toString());
+        const element = interventions.data[index];
+        if (result.includes(element.idEms)) {
+          interventionsUpload.push(element);
+        }
+      }
+
+      console.log(interventionsUpload.length);
+
+      var pimpdmsUpload = Array();
+      for (let index = 0; index < pimpdms.data.length; index++) {
+        let result = interventionsUpload.map((a) => a.id);
+        localStorage.setItem('interventionsUpload', result.toString());
+        const element = pimpdms.data[index];
+        if (result.includes(element.idIntervention)) {
+          pimpdmsUpload.push(element);
+        }
+      }
+
+      console.log(pimpdmsUpload.length);
+
+      localStorage.setItem('alerteCount', alertesUpload.length.toString());
+      localStorage.setItem('emsCount', emsUpload.length.toString());
       localStorage.setItem(
         'interventionCount',
-        interventions.data.length.toString()
+        interventionsUpload.length.toString()
       );
-      localStorage.setItem('pimpdmCount', pimpdms.data.length.toString());
+      localStorage.setItem('pimpdmCount', pimpdmsUpload.length.toString());
 
       const client = new MeiliSearch({
         host: 'https://meilisearch.rrm-cameroun.cm',
       });
+      client.deleteIndexIfExists('alertes');
+      client.deleteIndexIfExists('ems');
+      client.deleteIndexIfExists('interventions');
+      client.deleteIndexIfExists('pimpdms');
+
       client
         .index('alertes')
-        .addDocuments(alertes.data)
+        .addDocuments(alertesUpload)
         .then((res) => console.log(res));
 
       client
         .index('ems')
-        .addDocuments(ems.data)
+        .addDocuments(emsUpload)
         .then((res) => console.log(res));
 
       client
         .index('interventions')
-        .addDocuments(interventions.data)
+        .addDocuments(interventionsUpload)
         .then((res) => console.log(res));
 
       client
         .index('pimpdms')
-        .addDocuments(pimpdms.data)
+        .addDocuments(pimpdmsUpload)
         .then((res) => console.log(res));
     });
 

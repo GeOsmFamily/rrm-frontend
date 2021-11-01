@@ -13,16 +13,18 @@ export class HandleAlertesSearch {
     var responses = Array();
 
     responseData.forEach((element) => {
-      var geometry = {
-        type: 'Point',
-        coordinates: [element.longitude, element.latitude],
-      };
+      if (element.valide == 'oui') {
+        var geometry = {
+          type: 'Point',
+          coordinates: [element.longitude, element.latitude],
+        };
 
-      responses.push({
-        type: 'Feature',
-        geometry: geometry,
-        properties: element,
-      });
+        responses.push({
+          type: 'Feature',
+          geometry: geometry,
+          properties: element,
+        });
+      }
     });
 
     var geojson = {

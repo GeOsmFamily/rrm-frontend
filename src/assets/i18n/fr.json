@@ -210,7 +210,11 @@
     "limites": "Limites adminstratives (OSM)",
     "photon": "Lieux (Photon)",
     "nominatim": "Lieux ",
-    "layer": "Données et cartes"
+    "layer": "Données et cartes",
+    "alertes": "Alertes",
+    "ems": "EMS",
+    "interventions": "Interventions",
+    "pimpdms": "PIM/PDM"
   },
   "zoom_to_coordinates": {
     "cancel": "Annuler",
@@ -268,7 +272,8 @@
   "infos": {
     "p1": "GeOsm est une infrastructure ouverte, collaborative et mutualisée composée de données, de ressources et d'acteurs qui jouent tous un rôle de premier plan dans le déploiement, l'amélioration et le maintien de solutions innovantes basées sur des données géospatiales libres de droit et accessibles à tous.",
     "p2": "Pour remonter une anormalie (bug) de l'application :",
-    "p3": "Si vous avez une idée de collaboration ou une technologie d'intérêt, ou si vous avez une force dans un de nos domaines d'intérêt, n'hésitez pas à communiquer avec nous:"
+    "p3": "Si vous avez une idée de collaboration ou une technologie d'intérêt, ou si vous avez une force dans un de nos domaines d'intérêt, n'hésitez pas à communiquer avec nous:",
+    "p4": "Avec l’appui du Centre de Crise et de Soutien et la DG ECHO, Première Urgence Internationale (PUI) et Action Contre la Faim (ACF) travaillent en consortium à la mise en œuvre d’un programme d’urgence : le Mécanisme de Réponse Rapide (RRM) depuis 2017. La cible ? Les populations contraintes de se déplacer et fuyant un choc (conflit armé, catastrophe naturelle ou épidémie), prioritairement dans l’Extrême Nord du Cameroun"
   },
   "save": "Valider",
   "cancel": "Annuler",
