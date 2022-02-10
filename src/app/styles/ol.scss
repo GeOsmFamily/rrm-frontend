@@ -70,7 +70,7 @@
     height: 25px !important;
     margin-bottom: 0px;
     border-radius: 0px !important;
-    background: #DC143C94;
+    background: #dc143c94;
   }
 }
 
@@ -101,7 +101,7 @@
 }
 
 .ol-scale-line {
-  background: #DC143C94 !important;
+  background: #dc143c94 !important;
   position: absolute;
 }
 
@@ -158,16 +158,16 @@
   height: 15px;
   background-color: #000000;
   float: right;
-  z-Index: 10;
+  z-index: 10;
 }
 
 .ol-scale-step-text {
   position: absolute;
   bottom: -5px;
   font-size: 12px;
-  z-Index: 11;
+  z-index: 11;
   color: #000000;
-  text-shadow: -2px 0 #FFFFFF, 0 2px #FFFFFF, 2px 0 #FFFFFF, 0 -2px #FFFFFF;
+  text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
 }
 
 .ol-scale-text {
@@ -176,13 +176,13 @@
   text-align: center;
   bottom: 25px;
   color: #000000;
-  text-shadow: -2px 0 #FFFFFF, 0 2px #FFFFFF, 2px 0 #FFFFFF, 0 -2px #FFFFFF;
+  text-shadow: -2px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -2px #ffffff;
 }
 
 .ol-scale-singlebar {
   position: relative;
   height: 10px;
-  z-Index: 9;
+  z-index: 9;
   box-sizing: border-box;
   border: 1px solid black;
 }
@@ -234,30 +234,30 @@
 }
 
 .ol-zoom {
-  top: .5em;
-  left: .5em;
+  top: 0.5em;
+  left: 0.5em;
 }
 
 .ol-rotate {
-  top: .5em;
-  right: .5em;
-  transition: opacity .25s linear, visibility 0s linear;
+  top: 0.5em;
+  right: 0.5em;
+  transition: opacity 0.25s linear, visibility 0s linear;
 }
 
 .ol-rotate.ol-hidden {
   opacity: 0;
   visibility: hidden;
-  transition: opacity .25s linear, visibility 0s linear .25s;
+  transition: opacity 0.25s linear, visibility 0s linear 0.25s;
 }
 
 .ol-zoom-extent {
   top: 4.643em;
-  left: .5em;
+  left: 0.5em;
 }
 
 .ol-full-screen {
-  right: .5em;
-  top: .5em;
+  right: 0.5em;
+  top: 0.5em;
 }
 
 .ol-control button {
@@ -271,7 +271,7 @@
   text-align: center;
   height: 1.375em;
   width: 1.375em;
-  line-height: .4em;
+  line-height: 0.4em;
   background-color: rgba(0, 60, 136, 0.5);
   border: none;
   border-radius: 2px;
@@ -315,17 +315,16 @@
   border-radius: 0 0 2px 2px;
 }
 
-
 .ol-attribution {
   text-align: right;
-  bottom: .5em;
-  right: .5em;
+  bottom: 0.5em;
+  right: 0.5em;
   max-width: calc(100% - 1.3em);
 }
 
 .ol-attribution ul {
   margin: 0;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   color: #000;
   text-shadow: 0 0 2px #fff;
 }
@@ -365,7 +364,7 @@
 }
 
 .ol-attribution.ol-uncollapsible img {
-  margin-top: -.2em;
+  margin-top: -0.2em;
   max-height: 1.6em;
 }
 
@@ -375,7 +374,7 @@
 
 .ol-zoomslider {
   top: 4.5em;
-  left: .5em;
+  left: 0.5em;
   height: 200px;
 }
 

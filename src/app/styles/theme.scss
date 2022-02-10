@@ -106,7 +106,8 @@ $primary: $primary_color;
 
 $primary_transparent_bg: #f2f7fa;
 
-$color_prim: (50: #000,
+$color_prim: (
+  50: #000,
   100: $primary,
   200: $primary,
   300: $primary,
@@ -120,7 +121,8 @@ $color_prim: (50: #000,
   A200: #000,
   A400: $primary,
   A700: $primary,
-  contrast: (500: black,
+  contrast: (
+    500: black,
     600: black,
     700: black,
     800: black,
@@ -129,7 +131,8 @@ $color_prim: (50: #000,
   ),
 );
 
-$color_accent: (50: #000,
+$color_accent: (
+  50: #000,
   100: #00ada7,
   200: #00ada7,
   300: #00ada7,
@@ -143,7 +146,8 @@ $color_accent: (50: #000,
   A200: #000,
   A400: #00ada7,
   A700: #00ada7,
-  contrast: (500: black,
+  contrast: (
+    500: black,
     600: black,
     700: black,
     800: black,

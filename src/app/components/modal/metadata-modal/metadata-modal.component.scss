@@ -1,4 +1,4 @@
-@import '../../../styles/modal.scss';
+@import "../../../styles/modal.scss";
 
 .close {
   font-size: 18px !important;
@@ -50,10 +50,10 @@ div {
   flex-direction: column !important;
 }
 
-.example-container>* {
+.example-container > * {
   width: 100% !important;
 }
 
-.example-container span>* {
+.example-container span > * {
   width: 100% !important;
 }

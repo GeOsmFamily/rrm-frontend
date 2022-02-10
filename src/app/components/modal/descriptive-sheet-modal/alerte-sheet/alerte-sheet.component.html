@@ -1,100 +1,121 @@
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    code de l'alerte
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    code de l'alerte :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['textLabel']}}
+    {{ descriptiveModel!.properties["textLabel"] }}
   </div>
 </div>
 
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Département
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Département :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['departement']}}
+    {{ descriptiveModel!.properties["departement"] }}
   </div>
 </div>
 
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Arrondissement
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Arrondissement :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['arrondissement']}}
+    {{ descriptiveModel!.properties["arrondissement"] }}
   </div>
 </div>
 
-
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Date de l'alerte
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Date de l'alerte :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['dateAlerte']}}
+    {{ descriptiveModel!.properties["dateAlerte"] }}
   </div>
 </div>
 
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Type de Choc
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Type de Choc :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['typeChoc']}}
+    {{ descriptiveModel!.properties["typeChoc"] }}
   </div>
 </div>
 
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Acteur
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Acteur :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['acteur']}}
+    {{ descriptiveModel!.properties["acteur"] }}
   </div>
 </div>
 
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Ménages Affectés
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Ménages Affectés :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['menagesAffectes']}}
+    {{ descriptiveModel!.properties["menagesAffectes"] }}
   </div>
 </div>
 
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Personnes Affectées
-    :
+<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px">
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Personnes Affectées :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['personnesAffectees']}}
+    {{ descriptiveModel!.properties["personnesAffectees"] }}
   </div>
 </div>
 
-<div fxLayout class="descriptive-sheet-body" style="margin-bottom: 5px;"
-  *ngIf="descriptiveModel!.properties['resume'] !== null">
-  <div fxFlex="35%" class="attribute" style="font-family: 'Avenir Next Rounded Pro Medium';
-    font-weight: bold;">
-    Résumé
-    :
+<div
+  fxLayout
+  class="descriptive-sheet-body"
+  style="margin-bottom: 5px"
+  *ngIf="descriptiveModel!.properties['resume'] !== null"
+>
+  <div
+    fxFlex="35%"
+    class="attribute"
+    style="font-family: 'Avenir Next Rounded Pro Medium'; font-weight: bold"
+  >
+    Résumé :
   </div>
   <div fxFlex class="attribute-value">
-    {{ descriptiveModel!.properties['resume']}}
+    {{ descriptiveModel!.properties["resume"] }}
   </div>
 </div>

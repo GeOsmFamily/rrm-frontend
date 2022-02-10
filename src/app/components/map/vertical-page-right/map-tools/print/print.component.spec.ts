@@ -11,9 +11,8 @@ describe('PrintComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrintComponent ]
-    })
-    .compileComponents();
+      declarations: [PrintComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

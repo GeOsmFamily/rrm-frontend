@@ -8,9 +8,8 @@ describe('GroupeCarteComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GroupeCarteComponent ]
-    })
-    .compileComponents();
+      declarations: [GroupeCarteComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

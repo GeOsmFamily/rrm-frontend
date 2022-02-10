@@ -2,7 +2,6 @@
   width: 400px;
   margin: 0 auto;
 
-
   ::ng-deep .mat-form-field-infix {
     padding-top: 0px;
     border: none;
@@ -40,9 +39,6 @@
   background-color: #f2f7fa;
 }
 
-
-
-
 .mat-option {
   height: 50px;
   line-height: 18px;
@@ -61,7 +57,7 @@
   }
 }
 
-@media (max-width : 767px) {
+@media (max-width: 767px) {
   .header-search-form {
     width: 300px;
   }

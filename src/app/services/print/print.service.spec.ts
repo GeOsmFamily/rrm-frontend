@@ -6,7 +6,7 @@ import { PrintService } from './print.service';
 describe('Service: Print', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PrintService]
+      providers: [PrintService],
     });
   });
 

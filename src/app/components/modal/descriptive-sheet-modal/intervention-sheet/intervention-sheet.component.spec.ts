@@ -8,9 +8,8 @@ describe('InterventionSheetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InterventionSheetComponent ]
-    })
-    .compileComponents();
+      declarations: [InterventionSheetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
