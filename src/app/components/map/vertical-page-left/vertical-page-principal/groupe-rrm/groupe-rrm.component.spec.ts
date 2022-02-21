@@ -8,9 +8,8 @@ describe('GroupeRrmComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GroupeRrmComponent ]
-    })
-    .compileComponents();
+      declarations: [GroupeRrmComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

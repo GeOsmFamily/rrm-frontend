@@ -129,11 +129,15 @@
 // .menu-thematiques-child:hover .menu-thematiques-child-title{
 // 	// margin-left: -7px
 // }
-.menu-thematiques-child:hover .menu-thematiques-child-next .menu-thematiques-child-next-blanc {
+.menu-thematiques-child:hover
+  .menu-thematiques-child-next
+  .menu-thematiques-child-next-blanc {
   display: none;
 }
 
-.menu-thematiques-child:hover .menu-thematiques-child-next .menu-thematiques-child-next-rouge {
+.menu-thematiques-child:hover
+  .menu-thematiques-child-next
+  .menu-thematiques-child-next-rouge {
   display: block;
   /*-webkit-transform:  scale3d(1.2, 1.3, 3) translatex(-5px);*/
 }

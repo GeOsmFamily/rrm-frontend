@@ -11,9 +11,8 @@ describe('ListDownloadLayersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListDownloadLayersComponent ]
-    })
-    .compileComponents();
+      declarations: [ListDownloadLayersComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

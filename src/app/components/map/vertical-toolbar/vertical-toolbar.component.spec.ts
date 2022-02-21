@@ -8,9 +8,8 @@ describe('VerticalToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerticalToolbarComponent ]
-    })
-    .compileComponents();
+      declarations: [VerticalToolbarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

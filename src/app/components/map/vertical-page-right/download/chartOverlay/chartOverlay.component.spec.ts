@@ -11,9 +11,8 @@ describe('ChartOverlayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartOverlayComponent ]
-    })
-    .compileComponents();
+      declarations: [ChartOverlayComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

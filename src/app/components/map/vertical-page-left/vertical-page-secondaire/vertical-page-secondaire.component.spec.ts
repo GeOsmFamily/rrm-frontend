@@ -8,9 +8,8 @@ describe('VerticalPageSecondaireComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerticalPageSecondaireComponent ]
-    })
-    .compileComponents();
+      declarations: [VerticalPageSecondaireComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

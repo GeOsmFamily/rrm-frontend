@@ -8,9 +8,8 @@ describe('CaracteristiquesLieuModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CaracteristiquesLieuModalComponent ]
-    })
-    .compileComponents();
+      declarations: [CaracteristiquesLieuModalComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

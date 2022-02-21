@@ -8,9 +8,8 @@ describe('EmsSheetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmsSheetComponent ]
-    })
-    .compileComponents();
+      declarations: [EmsSheetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

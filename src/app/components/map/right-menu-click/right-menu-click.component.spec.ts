@@ -8,9 +8,8 @@ describe('RightMenuClickComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RightMenuClickComponent ]
-    })
-    .compileComponents();
+      declarations: [RightMenuClickComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

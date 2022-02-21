@@ -8,9 +8,8 @@ describe('VerticalPagePrincipalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerticalPagePrincipalComponent ]
-    })
-    .compileComponents();
+      declarations: [VerticalPagePrincipalComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

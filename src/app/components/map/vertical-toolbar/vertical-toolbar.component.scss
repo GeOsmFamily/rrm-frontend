@@ -12,10 +12,8 @@
 }
 
 .vertical-toolbar-groupe-btn-1 {
-
   button {
     margin-top: 10px;
-
   }
 
   button:hover {
@@ -42,9 +40,7 @@
   transform: rotate(180deg) !important;
 }
 
-@media (max-width : 767px) {
-
-
+@media (max-width: 767px) {
   .rollBack,
   .rollFront {
     display: none;

@@ -8,9 +8,8 @@ describe('ListGeosignetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListGeosignetComponent ]
-    })
-    .compileComponents();
+      declarations: [ListGeosignetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

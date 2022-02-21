@@ -8,9 +8,8 @@ describe('RrmModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RrmModalComponent ]
-    })
-    .compileComponents();
+      declarations: [RrmModalComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

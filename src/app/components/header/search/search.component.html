@@ -1,57 +1,73 @@
 <ng-container *ngIf="form">
   <form [formGroup]="form" class="header-search-form">
-    <mat-form-field appearance="fill" style="width: 100%;">
-      <input type="text" matInput formControlName="searchWord" [matAutocomplete]="auto" class=" white "
-        placeholder="{{'search.placeholder' | translate}}" onfocus="this.placeholder = ''"
-        onblur="this.placeholder = 'Search'">
+    <mat-form-field appearance="fill" style="width: 100%">
+      <input
+        type="text"
+        matInput
+        formControlName="searchWord"
+        [matAutocomplete]="auto"
+        class="white"
+        placeholder="{{ 'search.placeholder' | translate }}"
+        onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'Search'"
+      />
       <em class="fa fa-search fa-lg white" matPrefix></em>
-      <em class="fa fa-times fa-lg white pointer" matSuffix *ngIf="form.get('searchWord')?.value"
-        (click)="clearSearch()"></em>
-      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayAutocompleFn"
-        (optionSelected)="optionAutocomplteSelected($event)">
+      <em
+        class="fa fa-times fa-lg white pointer"
+        matSuffix
+        *ngIf="form.get('searchWord')?.value"
+        (click)="clearSearch()"
+      ></em>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        [displayWith]="displayAutocompleFn"
+        (optionSelected)="optionAutocomplteSelected($event)"
+      >
         <mat-option *ngIf="isLoading">
-          <mat-spinner style="display: block;
-    margin-left: auto;
-    margin-right: auto" diameter="35"></mat-spinner>
+          <mat-spinner
+            style="display: block; margin-left: auto; margin-right: auto"
+            diameter="35"
+          ></mat-spinner>
         </mat-option>
         <div *ngIf="!isLoading">
-          <mat-optgroup *ngFor="let option of objectsIn(filterOptions) " [label]="'search.'+[option] | translate"
-            [hidden]="filterOptions[option].length === 0">
-            <mat-option *ngFor="let item of filterOptions[option]" [value]="item">
-
-
+          <mat-optgroup
+            *ngFor="let option of objectsIn(filterOptions)"
+            [label]="'search.' + [option] | translate"
+            [hidden]="filterOptions[option].length === 0"
+          >
+            <mat-option
+              *ngFor="let item of filterOptions[option]"
+              [value]="item"
+            >
               <ng-container *ngIf="option === 'nominatim'">
-                {{item.name}}
-                <br>
-                <small> {{item.details}} </small>
+                {{ item.name }}
+                <br />
+                <small> {{ item.details }} </small>
               </ng-container>
 
               <ng-container *ngIf="option === 'alertes'">
-                {{item.name}}
-                <br>
-                <small> {{item.details}} </small>
+                {{ item.name }}
+                <br />
+                <small> {{ item.details }} </small>
               </ng-container>
 
               <ng-container *ngIf="option === 'ems'">
-                {{item.name}}
-                <br>
-                <small> {{item.details}} </small>
+                {{ item.name }}
+                <br />
+                <small> {{ item.details }} </small>
               </ng-container>
 
               <ng-container *ngIf="option === 'interventions'">
-                {{item.name}}
-                <br>
-                <small> {{item.details}} </small>
+                {{ item.name }}
+                <br />
+                <small> {{ item.details }} </small>
               </ng-container>
 
               <ng-container *ngIf="option === 'pimpdms'">
-                {{item.name}}
-                <br>
-                <small> {{item.details}} </small>
+                {{ item.name }}
+                <br />
+                <small> {{ item.details }} </small>
               </ng-container>
-
-
-
             </mat-option>
           </mat-optgroup>
         </div>

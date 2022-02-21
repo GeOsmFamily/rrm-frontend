@@ -8,9 +8,8 @@ describe('PimpdmSheetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PimpdmSheetComponent ]
-    })
-    .compileComponents();
+      declarations: [PimpdmSheetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

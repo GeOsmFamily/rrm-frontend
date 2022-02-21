@@ -8,9 +8,8 @@ describe('LegendsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LegendsComponent ]
-    })
-    .compileComponents();
+      declarations: [LegendsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

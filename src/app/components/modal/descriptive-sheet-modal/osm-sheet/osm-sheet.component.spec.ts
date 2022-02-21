@@ -8,9 +8,8 @@ describe('OsmSheetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OsmSheetComponent ]
-    })
-    .compileComponents();
+      declarations: [OsmSheetComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
