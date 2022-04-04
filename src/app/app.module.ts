@@ -75,6 +75,7 @@ import { EmsSheetComponent } from './components/modal/descriptive-sheet-modal/em
 import { InterventionSheetComponent } from './components/modal/descriptive-sheet-modal/intervention-sheet/intervention-sheet.component';
 import { PimpdmSheetComponent } from './components/modal/descriptive-sheet-modal/pimpdm-sheet/pimpdm-sheet.component';
 import { RrmModalComponent } from './components/modal/rrm-modal/rrm-modal/rrm-modal.component';
+import { ContactModalComponent } from './components/modal/contact-modal/contact-modal.component';
 
 const customConfig: ShareButtonsConfig = {
   include: ['copy', 'facebook', 'twitter', 'linkedin', 'messenger', 'whatsapp'],
@@ -134,6 +135,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     InterventionSheetComponent,
     PimpdmSheetComponent,
     RrmModalComponent,
+    ContactModalComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

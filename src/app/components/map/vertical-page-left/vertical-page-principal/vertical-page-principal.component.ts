@@ -210,4 +210,9 @@ export class VerticalPagePrincipalComponent implements OnInit {
       ip: this.ipService.getIP(),
     });
   }
+
+  openModalInfo() {
+    this.componentHelper.openModalContact([]);
+  }
+
 }
