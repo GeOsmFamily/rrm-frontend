@@ -79,7 +79,6 @@ export class StorageServiceService {
         from(this.apiApiService.getRequest('config_bd_projet')),
         from(
           this.dashboardService.post_requete('api/login', {
-            //5
             email: 'gautier@rrm-cameroun.cm',
             password: 'Adminrrm@123',
             remember_me: true,
